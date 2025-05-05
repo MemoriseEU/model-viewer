@@ -71,8 +71,8 @@ export const AnnotationPrimitive = forwardRef<
   };
 
   useEffect(() => {
-    gltf.scene.scale.set(20, 20, 20);
-    camera.position.set(0, 0, 0);
+    gltf.scene.scale.set(30, 30, 30);
+    camera.position.set(0, 0, 0.0000000001);
   }, []);
 
   useEffect(() => {

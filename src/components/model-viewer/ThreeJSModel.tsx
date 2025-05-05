@@ -1,4 +1,4 @@
-import { OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { createRef, Suspense, useRef } from "react";
 
@@ -30,6 +30,7 @@ export const ThreeJSModel = (props: ThreeJSModelProps) => {
   return (
     <Canvas id="editorCanvas">
       <Suspense fallback={null}>
+        <Environment preset="sunset" />
         <ambientLight intensity={1.0} />
         <AnnotationPrimitive
           editor={editor}
