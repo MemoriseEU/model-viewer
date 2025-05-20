@@ -14,7 +14,7 @@ import { useGLTF, Html } from "@react-three/drei";
 
 import useKeyboard from "../../utils/useKeyboard";
 import { FPVControls } from "./FirstPersonControls";
-import { Vector3 } from "three/src/Three.js";
+import { Box3, Vector3 } from "three/src/Three.js";
 // @ts-ignore:
 import TWEEN from "@tweenjs/tween.js";
 import { add } from "three/examples/jsm/libs/tween.module.js";
@@ -71,8 +71,23 @@ export const AnnotationPrimitive = forwardRef<
   };
 
   useEffect(() => {
-    gltf.scene.scale.set(30, 30, 30);
+    // gltf.scene.scale.set(30, 30, 30);
     camera.position.set(0, 0, 0.0000000001);
+
+    const box = new Box3().setFromObject(scene);
+    const center = box.getCenter(new Vector3());
+    const sizeVec = box.getSize(new Vector3());
+    console.log(box, box, sizeVec, center);
+    // gltf.scene.position.sub(center);
+    /* const size = sizeVec.length();
+    camera.position.copy(
+      center.clone().add(new THREE.Vector3(0, 0, size * 1.5))
+    ); */
+    controlRef.current.target.copy(center);
+    controlRef.current.enableZoom = true;
+    controlRef.current.enablePan = true;
+    controlRef.current.enableRotate = true;
+    controlRef.current.update();
   }, []);
 
   useEffect(() => {
