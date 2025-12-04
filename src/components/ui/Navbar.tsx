@@ -49,9 +49,9 @@ export function Navbar(): JSX.Element {
           </Link>
           <Link
             className="block mt-4 lg:inline-block lg:mt-0 text-gray-700 hover:text-black mr-4"
-            href="/model-viewer/scene-5"
+            href="/model-viewer/scene-6"
           >
-            Santa Clara
+            Kaiserwald
           </Link>
           {/* <Link
             className="block mt-4 lg:inline-block lg:mt-0 text-gray-700 hover:text-black mr-4"
